@@ -109,6 +109,13 @@ jobs:
               encoding="utf-8",
           )
           PY
+      - name: Download random image
+        shell: bash
+        run: |
+          mkdir -p config
+          curl -L -sS --max-time 30 "https://uapis.cn/api/v1/random/image" -o config/random.jpg
+          file config/random.jpg
+
       - name: Run
         shell: bash
         run: |
